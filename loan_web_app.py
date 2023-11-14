@@ -117,7 +117,7 @@ if st.sidebar.button('SUBMIT'):
     st.markdown("<h1 style='text-align: center; color:#7a000d;'>Engine Running.Processing Results........</h1>", unsafe_allow_html=True)
     data=pd.read_csv('assets/data/evaluation data/final_train.csv')
     clf=rfc(random_state=1,n_estimators=95)
-    clf.fit(data.drop('y',1),data['y'])
+    clf.fit(data.drop('y',axis=1),data['y'])
     
     prediction=clf.predict(df)
     prob=clf.predict_proba(df)*100
